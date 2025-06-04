@@ -35,7 +35,7 @@ gcloud auth application-default print-access-token
 
       - python S3_Pipeline_dual.py --mode historical --start-date 2024-01-01 --end-date 2024-01-03
 
-      This will process data from January 1, 2025, to January 3, 2025.
+      This will process data from January 1, 2024, to January 3, 2024.
 
 test local machine 
 python /Users/weraphongsuaruang/Python/S3_OLCI/03_pipeline/S3_Pipeline_dual.py --mode historical --start-date 2024-01-01 --end-date 2024-01-03
