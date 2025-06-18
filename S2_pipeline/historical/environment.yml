@@ -1,0 +1,24 @@
+name: sentinel2_pipeline
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy>=1.24.0
+  - matplotlib>=3.7.0
+  - scipy>=1.10.0
+  - gdal>=3.6.0
+  - openjpeg>=2.5.0  # Provides libgdal-jp2openjpeg for JPEG2000 support
+  - netcdf>=4.9.0    # Provides libgdal-netcdf for NetCDF support
+  - pyproj>=3.5.0
+  - scikit-image>=0.21.0
+  - pyhdf>=0.10.5
+  - pyresample>=1.27.0
+  - netcdf4>=1.6.0
+  - h5py>=3.8.0
+  - requests>=2.31.0
+  - pygrib>=2.1.5
+  - cartopy>=0.22.0
+  # Note: ACOLITE is not available via Conda. Install manually from https://github.com/acolite/acolite
+  # and ensure its dependencies are compatible with this environment.
+  # If pygrib is not available via conda-forge, install via pip: `pip install pygrib`
