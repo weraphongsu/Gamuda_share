@@ -2,4 +2,4 @@
 
 
 
-python 03_BathPipeline_cloud.py --input_bucket g_bathymetry --zip_blob bathymetry/SMP2.zip --output_bucket g_bathymetry --output_prefix interpolated --aoi_name "Island A" --project servir-ee --gee_asset_path projects/servir-ee/assets/BathymetryCollection
+python 03_BathyMetry_Pipeline_kriging.py --input_bucket g_bathymetry --zip_blob bathymetry/SMP2.zip --output_bucket g_bathymetry --output_prefix interpolated --aoi_name "Island A" --project servir-ee --gee_asset_path projects/servir-ee/assets/BathymetryCollection

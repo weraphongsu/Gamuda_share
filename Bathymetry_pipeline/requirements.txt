@@ -1,0 +1,10 @@
+pandas
+numpy
+geopandas
+rasterio
+scipy
+pyproj
+google-cloud-storage
+earthengine-api
+shapely
+pykrige

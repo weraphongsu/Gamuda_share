@@ -1,0 +1,10 @@
+*** google cloud config
+
+gcloud auth application-default login
+
+gcloud projects list  
+
+gcloud auth application-default set-quota-project servir-ee
+gcloud config set project servir-ee  
+
+gcloud config get-value project 
