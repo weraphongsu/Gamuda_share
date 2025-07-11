@@ -120,36 +120,6 @@ def interpolate_and_export(df, aoi_gdf, grid_res, crs_epsg, output_path):
 
 
 
-# def interpolate_and_export(df, aoi_gdf, grid_res, crs_epsg, output_path):
-#     gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df['Easting'], df['Northing']), crs=f"EPSG:{crs_epsg}")
-    
-#     # Reproject AOI if needed
-#     if aoi_gdf.crs.to_epsg() != crs_epsg:
-#         aoi_gdf = aoi_gdf.to_crs(epsg=crs_epsg)
-    
-#     # Clip
-#     gdf_clip = gdf[gdf.within(aoi_gdf.unary_union)]
-#     if gdf_clip.empty:
-#         raise ValueError("No point within AOI")
-
-#     # Interpolation
-#     x, y, z = gdf_clip['Easting'].values, gdf_clip['Northing'].values, gdf_clip['Vertical'].values
-#     xi = np.arange(x.min(), x.max(), grid_res)
-#     yi = np.arange(y.min(), y.max(), grid_res)
-#     xi, yi = np.meshgrid(xi, yi)
-#     zi = griddata((x, y), z, (xi, yi), method='linear')
-#     zi_flipped = np.flipud(zi)
-#     transform = from_origin(xi.min(), yi.max(), grid_res, grid_res)
-
-#     # Write GeoTIFF
-#     with rasterio.open(
-#         output_path,
-#         'w', driver='GTiff', height=zi_flipped.shape[0], width=zi_flipped.shape[1],
-#         count=1, dtype=zi_flipped.dtype, crs=f"EPSG:{crs_epsg}", transform=transform, nodata=np.nan
-#     ) as dst:
-#         dst.write(zi_flipped, 1)
-#     return output_path
-
 
 
 def reproject_tif_to_4326(src_path, dst_path):
@@ -214,8 +184,11 @@ if __name__ == "__main__":
         aoi_geom = aoi_geojson['features'][0]['geometry']
         # aoi_gdf = gpd.GeoDataFrame.from_features([{'geometry': aoi_geom}], crs='EPSG:4326').to_crs(epsg=3382)
         aoi_gdf = gpd.GeoDataFrame.from_features(
-        [{'type': 'Feature', 'geometry': aoi_geom, 'properties': {}}],
-        crs='EPSG:4326').to_crs(epsg=3382)
+    [{'type': 'Feature', 'geometry': aoi_geom, 'properties': {}}],
+    crs='EPSG:4326').to_crs(epsg=3382)
+
+        # Buffer AOI เพิ่ม 200 เมตร
+        aoi_gdf['geometry'] = aoi_gdf.buffer(300)
 
         # Get the zip name without extension
         zip_base = os.path.splitext(os.path.basename(args.zip_blob))[0]
