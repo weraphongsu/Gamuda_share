@@ -1,0 +1,38 @@
+name: s2_wq_pipeline
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - geopandas
+  - shapely
+  - requests
+  - rasterio
+  - gdal
+  - libgdal-jp2openjpeg
+  - libgdal-netcdf
+  - pyproj
+  - scikit-image
+  - pyhdf
+  - pyresample
+  - netcdf4
+  - h5py
+  - pygrib
+  - cartopy
+  - matplotlib
+  - scipy
+  - google-cloud-storage
+  - python-dotenv
+  - hdf5
+  - hdf4
+  - libnetcdf
+  - libzip
+  - libarchive
+  - unzip
+  - p7zip
+  - pip
+  - pip:
+      - earthengine-api
+      - tqdm

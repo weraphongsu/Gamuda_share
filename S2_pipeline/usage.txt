@@ -1,0 +1,7 @@
+
+1. python /Users/weraphongsuaruang/Python/S2_WQ/02_S2_Pipeline/00_S2Pipeline_Final.py --mode historical --start-date 2024-02-01 --end-date 2024-03-01 --cloud-cover 30
+
+2. python /Users/weraphongsuaruang/Python/S2_WQ/02_S2_Pipeline/00_S2Pipeline_Final.py --mode near-realtime --cloud-cover 50
+
+
+
